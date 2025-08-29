@@ -11,7 +11,7 @@ This api router gives PHP developers an easy way to create any api route.
 
 *Instead of methods*, we use simple **IF blocks** in our api router. You do not need complicated METHODS and frameworks!
 
-If you don't believe me, just have a look:
+You don't believe me that it can be so simple? Just have a look:
 
 Simple Route without parameter:
 -------------------------------
