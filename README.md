@@ -48,9 +48,10 @@ if (route("/user/{id}", GET, $params)) {
 A more advanced route could be:
 -------------------------------
 
+Creates a customer with the `vip` option.
+
 ```php
 if ( route("/customer/create/{id}/{name}/as/vip", PUT, $params) ) {
-  // Creates a customer with the `vip` option.
   echo json_encode(["message" => "Customer " . $params[0] . " with Name ". $params[1]." was created as VIP."]);
   exit;
 }
