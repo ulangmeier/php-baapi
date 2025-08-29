@@ -7,75 +7,79 @@ Just use the open source framework php-baapi to create easy API routes that othe
 
 Instead of methods, we use simple if statements.
 
-## How to define routes:
-  
-  Please go to the routes.php file and define your API routes there.
-  
-  Also you can place any other php file into this directory where you add
-  more routes for a specific topic.
+Simple Route without parameter:
+-------------------------------
 
-  For example `sms.php` for SMS specific API routes, or `language.php` for
-  the translation of language.
-  
-  DON'T place other php files into this directory, because all php files that
-  you place into this folder will be executed to find the requtested API route.
-  
-  Here is an example of how to define routes in the routes.php file:
-  
-  Simple Route without parameter:
-  -------------------------------
+**Hello World** API call:
 
-  **Hello World** API call:
+```php
+if (route("/hello", GET)) {
+   echo json_encode(["message" => "Hello, World!"]);
+}
+```
 
-  ```
-  if (route("/hello", GET)) {
-     echo json_encode(["message" => "Hello, World!"]);
-  }
-  ```
+**Say *Hello* to a specific x-being**
+```php
+if (route("/hello/{name}", "GET", $params)) {
+  echo json_encode(["message" => "Hello, ".$params[0]."!"]);
+  exit;
+}
+```
 
-  **Say *Hello* to a specific x-being**
-  ```php
-  if (route("/hello/{name}", "GET", $params)) {
-    echo json_encode(["message" => "Hello, ".$params[0]."!"]);
-    exit;
-  }
-  ```
-  
-  Route with parameter:
-  ---------------------
-  
-  ```php
-  if (route("/user/{id}", GET, $params)) {
-     // $arParams is an array that contains the api parameter (here the value of the passed-over {id}).
-    echo json_encode(["user_id" => $params[0]]);
-    exit;
-  }
-  ```
+Route with parameter:
+---------------------
 
-  A more advanced route could be:
-  -------------------------------
+```php
+if (route("/user/{id}", GET, $params)) {
+   // $arParams is an array that contains the api parameter (here the value of the passed-over {id}).
+  echo json_encode(["user_id" => $params[0]]);
+  exit;
+}
+```
 
-  ```php
-  if ( route("/customer/create/{id}/{name}/as/vip", PUT, $params) ) {
-    // Creates a customer with the `vip` option.
-    echo json_encode(["message" => "Customer " . $params[0] . " with Name ". $params[1]." was created as VIP."]);
-    exit;
-  }
-  ```
+A more advanced route could be:
+-------------------------------
+
+```php
+if ( route("/customer/create/{id}/{name}/as/vip", PUT, $params) ) {
+  // Creates a customer with the `vip` option.
+  echo json_encode(["message" => "Customer " . $params[0] . " with Name ". $params[1]." was created as VIP."]);
+  exit;
+}
+```
 
 
 ## How to test & call the routes:
 
-  Just use CURL from your commandline:
-  ```bash
-  curl -X GET http://your-website.com/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token"
-  ```
+Just use CURL from your commandline:
+```bash
+curl -X GET http://your-website.com/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token"
+```
 
-  If you need additional debug information use the -i option (shows the HTTP-Request Header):
-  ```bash
-  curl -X GET https://your-server.name/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token" -i
-  ```
-    
+If you need additional debug information use the -i option (shows the HTTP-Request Header):
+```bash
+curl -X GET https://your-server.name/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token" -i
+```
+
+
+## How to define your own routes:
+  
+Please go to the routes.php file and define your API routes there.
+
+Also you can place any other php file into this directory where you add
+more routes for a specific topic.
+
+For example `sms.php` for SMS specific API routes, or `language.php` for
+the translation of language.
+
+DON'T place other php files into this directory, because all php files that
+you place into this folder will be executed to find the requtested API route.
+
+See above some example routes, you find these routes also as pre-defined examples
+in the routes.php file already.
+
+
+
 ## Installation
 
 ### 📌 Apache
