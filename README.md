@@ -33,7 +33,7 @@ Note: $params is an array that contains the api parameter (here the value of the
 
 ```php
 if (route("/hello/{name}", "GET", $params)) {
-  echo json_encode(["message" => "Hello, ".$params[0]."!"]);
+  echo json_encode(["message" => "Hello, $params[0]!"]);
   exit;
 }
 ```
@@ -53,7 +53,7 @@ Creates a customer with the `vip` option:
 
 ```php
 if ( route("/customer/create/{id}/{name}/as/vip", PUT, $params) ) {
-  echo json_encode(["message" => "Customer " . $params[0] . " with Name ". $params[1]." was created as VIP."]);
+  echo json_encode(["message" => "Customer $params[0] with Name $params[1] was created as VIP."]);
   exit;
 }
 ```
