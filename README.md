@@ -103,7 +103,7 @@ to setup the test site in XAMPP.
 
 ### 📌 Apache
 
-If you use Apache, the `.htaccess` file is already working in /api/v1/. No additional steps are necessairy to install and setup BAAPI.
+If you use Apache, the `.htaccess` file is already doing it's job in /api/v1/. No additional steps are necessairy to make your api work.
 
 This is how the content of the file looks like:
 
