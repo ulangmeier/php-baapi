@@ -13,7 +13,7 @@ This api router gives PHP developers an easy way to create any api route.
 
 You don't believe me that it can be so simple? Just have a look:
 
-Simple Route without parameter:
+Simple API Route without parameter:
 -------------------------------
 
 **Hello World** API route:
