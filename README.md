@@ -93,6 +93,7 @@ in the routes.php file already.
 
 >Place your secret api token in the `.env` file! This is your bearer token for all api-calls.
 
+
 ### Adding the site to XAMPP for Windows
 
 If you use XAMPP for Windows, you may use `xampp-create-vhost.bat` and start it with Admin privileges
@@ -110,11 +111,13 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
 ```
 
-### 2️⃣ Nginx – location Block
+### 📌 Nginx
 
 If you are using Nginx, you can define the forwarding with location blocks in your server configuration.
 
-#### 📌 Nginx Config (/etc/nginx/sites-available/default)
+#### Nginx location block configuration
+
+Add this block to `/etc/nginx/sites-available/default`:
 
 ```
 server {
