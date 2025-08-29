@@ -1,7 +1,7 @@
 # Business Application API Router for PHP.
 #### API-Routing for PHP.
 
-Create an industry-standard, best-practice API in PHP, without any hazzle.
+Create an industry-standard API in PHP that follows best-practices, without any hazzle.
 
 You do not have to switch to Express.js, Python or Go.
 Do it like in Express.js, Python or Go, but in PHP.
