@@ -104,6 +104,7 @@ to setup the test site in XAMPP.
 ### 📌 Apache
 
 If you use Apache, the `.htaccess` file is already doing it's job in /api/v1/. No additional steps are necessairy to make your api work.
+Just write your routes to `/api/v1/routes.php` or to any other php file in `/api/v1/`.
 
 This is how the content of the file looks like:
 
