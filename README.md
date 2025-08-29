@@ -91,6 +91,14 @@ in the routes.php file already.
 
 ## Installation
 
+>Place your secret api token in the `.env` file! This is your bearer token for all api-calls.
+
+### Adding the site to XAMPP for Windows
+
+If you use XAMPP for Windows, you may use `xampp-create-vhost.bat` and start it with Admin privileges
+to setup the test site in XAMPP.
+
+
 ### 📌 Apache
 
 If you use Apache, the `.htaccess` file is already working in /api/v1/. No additional steps are necessairy to install and setup BAAPI.
@@ -139,7 +147,4 @@ server {
 
 2. Call your api with `http://your-domain.com/api/v2/hello`
 
-### Adding the site to XAMPP for Windows
 
-If you use XAMPP for Windows, you may use `xampp-create-vhost.bat` and start it with Admin privileges
-to setup the test site in XAMPP.
