@@ -105,6 +105,8 @@ to setup the test site in XAMPP.
 
 If you use Apache, the `.htaccess` file is already working in /api/v1/. No additional steps are necessairy to install and setup BAAPI.
 
+**This is how the `.htaccess` file looks like:**
+
 ```
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
