@@ -26,7 +26,7 @@ if (route("/hello", GET)) {
 Route with parameter:
 ---------------------
 
-**Say *Hello* to a specific x-being**
+**Say *Hello* to a specific x-being**:
 
 Note: $params is an array that contains the api parameter (here the value of the passed {name}).
 
@@ -37,7 +37,7 @@ if (route("/hello/{name}", "GET", $params)) {
 }
 ```
 
-**Getting an user id**
+**Getting an user id**:
 ```php
 if (route("/user/{id}", GET, $params)) {
   echo json_encode(["user_id" => $params[0]]);
@@ -48,7 +48,7 @@ if (route("/user/{id}", GET, $params)) {
 A more advanced route could be:
 -------------------------------
 
-Creates a customer with the `vip` option.
+Creates a customer with the `vip` option:
 
 ```php
 if ( route("/customer/create/{id}/{name}/as/vip", PUT, $params) ) {
