@@ -1,5 +1,5 @@
-## Best & simple PHP API Router
-# API-Routing für PHP. Code any API in PHP with less effort.
+# Best & simple PHP API Router
+## API-Routing for PHP. Code any API in PHP with less effort.
 
 You do not have to switch to Node, Express.js, Python or Go to create a industry-standard API routing.
 
@@ -24,26 +24,37 @@ Instead of methods, we use simple if statements.
   
   Simple Route without parameter:
   -------------------------------
-  
-  if (route("/hello", GET)) {
+
+  **Hello World** API call:
+
+  ```if (route("/hello", GET)) {
      echo json_encode(["message" => "Hello, World!"]);
   }
+  ```
+
+  **Say *Hello* to a specific x-being**
+  ```if (route("/hello/{name}", "GET", $params)) {
+    echo json_encode(["message" => "Hello, ".$params[0]."!"]);
+    exit;
+  }
+  ```
   
   Route with parameter:
   ---------------------
   
-  if (route("/user/{id}", GET, $arParams)) {
+  ```if (route("/user/{id}", GET, $params)) {
      // $arParams is an array that contains the api parameter (here the value of the passed-over {id}).
-    echo json_encode(["user_id" => $arParams[0]]);
+    echo json_encode(["user_id" => $params[0]]);
     exit;
   }
+  ```
 
   A more advanced route could be:
   -------------------------------
 
-  if ( route("/customer/create/{id}/{name}/as/gay", PUT, $arParams) ) {
-    // Creates a customer with the `gay` option.
-    echo json_encode(["message" => "Customer " . $arParams[0] . " with Name ". $arParams[1]." was created as gay."]);
+  if ( route("/customer/create/{id}/{name}/as/vip", PUT, $params) ) {
+    // Creates a customer with the `vip` option.
+    echo json_encode(["message" => "Customer " . $params[0] . " with Name ". $params[1]." was created as VIP."]);
     exit;
   }
 
@@ -51,16 +62,18 @@ Instead of methods, we use simple if statements.
 ## How to test & call the routes:
 
   Just use CURL from your commandline:
-  curl -X GET http://your-website.com/api/v2/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token"
+  ```curl -X GET http://your-website.com/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token"
+  ```
 
-
+  If you need additional debug information use the -i option (shows the HTTP-Request Header):
+  ```curl -X GET https://your-server.name/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token" -i
+  ```
+    
 ## Installation
 
-#1️⃣ Apache (empfohlen) – .htaccess für sauberes Routing
+### 📌 Apache
 
-Falls du Apache nutzt, kannst du eine .htaccess-Datei in deinem /api/v2/ Ordner erstellen, um alle Anfragen an eine zentrale index.php-Datei zu leiten.
-
-## 📌 .htaccess in /api/v2/
+If you use Apache, the `.htaccess` file is already working in /api/v1/. No additional steps are necessairy to install and setup BAAPI.
 
 ```RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -68,11 +81,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
 ```
 
-# 2️⃣ Nginx – location Block für Weiterleitung
+### 2️⃣ Nginx – location Block
 
-    Falls du Nginx nutzt, dann kannst du die Weiterleitung mit location-Blöcken in deiner Server-Konfiguration definieren.
+    If you are using Nginx, you can define the forwarding with location blocks in your server configuration.
 
-    ## 📌 Nginx Config (/etc/nginx/sites-available/default)
+    #### 📌 Nginx Config (/etc/nginx/sites-available/default)
 
     ```server {
         listen 80;
@@ -91,16 +104,20 @@ RewriteRule ^(.*)$ index.php [QSA,L]
     }
     ```
     
-    #🔹 Was passiert hier?
-    
-    Alle Anfragen unter `/api/v2/` werden auf index.php weitergeleitet.
-    PHP-Dateien werden über fastcgi_pass verarbeitet.
-    Danach:
-    
-    Nginx neu starten mit sudo systemctl restart nginx
-    API unter http://yourdomain.com/api/v2/hello aufrufen
+    **What’s happening here?**
 
-# Adding the site to XAMPP for Windows
+    - All requests under `/api/v1/` are forwarded to `index.php`.  
+    - PHP files are processed via `fastcgi_pass`.
+    
+    1. **Restart Nginx:**
+    
+       ```bash
+       sudo systemctl restart nginx
+       ```
+    
+    2. Call your api with `http://your-domain.com/api/v2/hello`
+
+### Adding the site to XAMPP for Windows
 
 If you use XAMPP for Windows, you may use `xampp-create-vhost.bat` and start it with Admin privileges
 to setup the test site in XAMPP.
