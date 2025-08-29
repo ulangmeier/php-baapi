@@ -1,11 +1,16 @@
-# Best & simple PHP API Router
+# Business Application API Router for PHP.
 ## API-Routing for PHP. Code any API in PHP with less effort.
 
-You do not have to switch to Node, Express.js, Python or Go to create a industry-standard API routing.
+Create an industry-standard, best-practice API in PHP, without any hazzle.
 
-Just use the open source framework php-baapi to create easy API routes that other developers love in other programming languages.
+You do not have to switch to Express.js, Python or Go.
+Do it like in Express.js, Python or Go, but in PHP.
 
-Instead of methods, we use simple if statements.
+This api router gives PHP developers an easy way to create any api route.
+
+Instead of methods, we use simple if statements in our api router. You do not need complicated METHODS and frameworks!
+
+If you don't believe me, just have a look:
 
 Simple Route without parameter:
 -------------------------------
