@@ -7,7 +7,8 @@ Falls du Apache nutzt, kannst du eine .htaccess-Datei in deinem /api/v2/ Ordner 
 ```RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]```
+RewriteRule ^(.*)$ index.php [QSA,L]
+```
 
 # 2️⃣ Nginx – location Block für Weiterleitung
 
