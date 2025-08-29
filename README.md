@@ -4,7 +4,7 @@
 Create an industry-standard API in PHP that follows best-practices, without any hazzle.
 
 You do not have to switch to Express.js, Python or Go.
-Create cool API routes that you know from Express.js, Python or Go.
+Create cool API routes that you know from these frameworks.
 *But in PHP!*
 
 This api router gives PHP developers an easy way to create any api route.
