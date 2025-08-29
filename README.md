@@ -92,7 +92,7 @@ in the routes.php file already.
 
 ## Installation
 
->Place your secret api token in the `.env` file! This is your bearer token for all api-calls.
+>Rename `.env.example` to `.env` and store your secret api token in the `.env` file! This will be your bearer token for all api-calls.
 
 
 ### Adding the site to XAMPP for Windows
