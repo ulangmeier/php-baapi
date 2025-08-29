@@ -1,4 +1,4 @@
-# Business Application API Router for PHP.
+# Business Application *API Router* for PHP.
 #### API-Routing for PHP.
 
 Create an industry-standard API in PHP that follows best-practices, without any hazzle.
