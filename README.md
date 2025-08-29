@@ -15,7 +15,7 @@ If you don't believe me, just have a look:
 Simple Route without parameter:
 -------------------------------
 
-**Hello World** API call:
+**Hello World** API route:
 
 ```php
 if (route("/hello", GET)) {
@@ -27,7 +27,9 @@ Route with parameter:
 ---------------------
 
 **Say *Hello* to a specific x-being**
+
 Note: $params is an array that contains the api parameter (here the value of the passed {name}).
+
 ```php
 if (route("/hello/{name}", "GET", $params)) {
   echo json_encode(["message" => "Hello, ".$params[0]."!"]);
