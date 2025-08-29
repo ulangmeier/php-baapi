@@ -112,7 +112,7 @@ This is how the content of `.htaccess` looks like:
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^(.*)$ baapi.php [QSA,L]
 ```
 
 ### 📌 Nginx
