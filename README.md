@@ -27,13 +27,15 @@ Instead of methods, we use simple if statements.
 
   **Hello World** API call:
 
-  ```if (route("/hello", GET)) {
+  ```
+  if (route("/hello", GET)) {
      echo json_encode(["message" => "Hello, World!"]);
   }
   ```
 
   **Say *Hello* to a specific x-being**
-  ```if (route("/hello/{name}", "GET", $params)) {
+  ```php
+  if (route("/hello/{name}", "GET", $params)) {
     echo json_encode(["message" => "Hello, ".$params[0]."!"]);
     exit;
   }
@@ -42,7 +44,8 @@ Instead of methods, we use simple if statements.
   Route with parameter:
   ---------------------
   
-  ```if (route("/user/{id}", GET, $params)) {
+  ```php
+  if (route("/user/{id}", GET, $params)) {
      // $arParams is an array that contains the api parameter (here the value of the passed-over {id}).
     echo json_encode(["user_id" => $params[0]]);
     exit;
@@ -52,21 +55,25 @@ Instead of methods, we use simple if statements.
   A more advanced route could be:
   -------------------------------
 
+  ```php
   if ( route("/customer/create/{id}/{name}/as/vip", PUT, $params) ) {
     // Creates a customer with the `vip` option.
     echo json_encode(["message" => "Customer " . $params[0] . " with Name ". $params[1]." was created as VIP."]);
     exit;
   }
+  ```
 
 
 ## How to test & call the routes:
 
   Just use CURL from your commandline:
-  ```curl -X GET http://your-website.com/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token"
+  ```bash
+  curl -X GET http://your-website.com/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token"
   ```
 
   If you need additional debug information use the -i option (shows the HTTP-Request Header):
-  ```curl -X GET https://your-server.name/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token" -i
+  ```bash
+  curl -X GET https://your-server.name/api/v1/hello/Urs+Langmeier -H "Authorization: Bearer your-secret-token" -i
   ```
     
 ## Installation
@@ -75,7 +82,8 @@ Instead of methods, we use simple if statements.
 
 If you use Apache, the `.htaccess` file is already working in /api/v1/. No additional steps are necessairy to install and setup BAAPI.
 
-```RewriteEngine On
+```
+RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
@@ -87,7 +95,8 @@ RewriteRule ^(.*)$ index.php [QSA,L]
 
     #### 📌 Nginx Config (/etc/nginx/sites-available/default)
 
-    ```server {
+    ```
+    server {
         listen 80;
         server_name yourdomain.com;
     
