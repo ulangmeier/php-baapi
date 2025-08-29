@@ -91,40 +91,40 @@ RewriteRule ^(.*)$ index.php [QSA,L]
 
 ### 2️⃣ Nginx – location Block
 
-    If you are using Nginx, you can define the forwarding with location blocks in your server configuration.
+If you are using Nginx, you can define the forwarding with location blocks in your server configuration.
 
-    #### 📌 Nginx Config (/etc/nginx/sites-available/default)
+#### 📌 Nginx Config (/etc/nginx/sites-available/default)
 
-    ```
-    server {
-        listen 80;
-        server_name yourdomain.com;
-    
-        location /api/v2/ {
-            rewrite ^/api/v2/(.*)$ /api/v2/index.php last;
-        }
-    
-        location ~ \.php$ {
-            fastcgi_pass unix:/run/php/php8.1-fpm.sock;  # Anpassen je nach PHP-Version
-            fastcgi_index index.php;
-            include fastcgi_params;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        }
+```
+server {
+    listen 80;
+    server_name yourdomain.com;
+
+    location /api/v2/ {
+        rewrite ^/api/v2/(.*)$ /api/v2/index.php last;
     }
-    ```
-    
-    **What’s happening here?**
 
-    - All requests under `/api/v1/` are forwarded to `index.php`.  
-    - PHP files are processed via `fastcgi_pass`.
-    
-    1. **Restart Nginx:**
-    
-       ```bash
-       sudo systemctl restart nginx
-       ```
-    
-    2. Call your api with `http://your-domain.com/api/v2/hello`
+    location ~ \.php$ {
+        fastcgi_pass unix:/run/php/php8.1-fpm.sock;  # Anpassen je nach PHP-Version
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
+```
+
+**What’s happening here?**
+
+- All requests under `/api/v1/` are forwarded to `index.php`.  
+- PHP files are processed via `fastcgi_pass`.
+
+1. **Restart Nginx:**
+
+   ```bash
+   sudo systemctl restart nginx
+   ```
+
+2. Call your api with `http://your-domain.com/api/v2/hello`
 
 ### Adding the site to XAMPP for Windows
 
