@@ -1,4 +1,4 @@
-# Business Application API Router for PHP.
+# Business Application *API Router* for PHP.
 #### API-Routing for PHP.
 
 Create an industry-standard API in PHP that follows best-practices, without any hazzle.
@@ -92,7 +92,7 @@ in the routes.php file already.
 
 ## Installation
 
->Place your secret api token in the `.env` file! This is your bearer token for all api-calls.
+>Rename `.env.example` to `.env` and store your secret api token in the `.env` file! This will be your bearer token for all api-calls.
 
 
 ### Adding the site to XAMPP for Windows
@@ -103,13 +103,16 @@ to setup the test site in XAMPP.
 
 ### 📌 Apache
 
-If you use Apache, the `.htaccess` file is already working in /api/v1/. No additional steps are necessairy to install and setup BAAPI.
+If you use Apache, the `.htaccess` file is already doing it's job in /api/v1/. No additional steps are necessairy to make your api work.
+Just write your routes to `/api/v1/routes.php` or to any other php file in `/api/v1/`.
+
+This is how the content of `.htaccess` looks like:
 
 ```
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^(.*)$ baapi.php [QSA,L]
 ```
 
 ### 📌 Nginx
