@@ -9,7 +9,7 @@ Create cool API routes that you know from these frameworks.
 
 This api router gives PHP developers an easy way to create any api route.
 
-Instead of methods, we use simple if statements in our api router. You do not need complicated METHODS and frameworks!
+*Instead of methods*, we use simple **IF blocks** in our api router. You do not need complicated METHODS and frameworks!
 
 If you don't believe me, just have a look:
 
