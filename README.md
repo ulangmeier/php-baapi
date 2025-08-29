@@ -18,7 +18,11 @@ if (route("/hello", GET)) {
 }
 ```
 
+Route with parameter:
+---------------------
+
 **Say *Hello* to a specific x-being**
+Note: $params is an array that contains the api parameter (here the value of the passed {name}).
 ```php
 if (route("/hello/{name}", "GET", $params)) {
   echo json_encode(["message" => "Hello, ".$params[0]."!"]);
@@ -26,12 +30,9 @@ if (route("/hello/{name}", "GET", $params)) {
 }
 ```
 
-Route with parameter:
----------------------
-
+**Getting an user id**
 ```php
 if (route("/user/{id}", GET, $params)) {
-   // $arParams is an array that contains the api parameter (here the value of the passed-over {id}).
   echo json_encode(["user_id" => $params[0]]);
   exit;
 }
